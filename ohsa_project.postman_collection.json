@@ -1,0 +1,2938 @@
+{
+	"info": {
+		"_postman_id": "d5e7bcc6-151e-4f54-a3a4-e9cc7d269114",
+		"name": "ohsa_project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "add boat as user1 - 1 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4cf400e2-3367-4c4d-a6ec-73fa3e1960a4",
+						"exec": [
+							"pm.environment.set(\"boat_id_1_1\", pm.response.json()[\"id\"]);    // for later use",
+							"pm.environment.set(\"user_id1\", pm.response.json()[\"owner\"]);",
+							"",
+							"pm.test(\"201 status code\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"",
+							"pm.test(\"content is valid\", function () {",
+							"    pm.expect(pm.response.json()[\"name\"]).to.eq(\"boat name 1_1\");",
+							"    pm.expect(pm.response.json()[\"type\"]).to.eq(\"boat type 1_1\");",
+							"    pm.expect(pm.response.json()[\"owner\"]).to.eq(pm.environment.get(\"user_id1\"));",
+							"    pm.expect(pm.response.json()[\"length\"]).to.eq(11);",
+							"    const self_url = pm.environment.get(\"app_url\") + \"/boats/\" + pm.response.json()[\"id\"];",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"boat name 1_1\",\n\t\"type\": \"boat type 1_1\",\n\t\"length\": 11\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/boats",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add boat as user1 - 2 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ed0434c2-d6f3-4e6c-b351-f7b750e66859",
+						"exec": [
+							"pm.environment.set(\"boat_id_1_2\", pm.response.json()[\"id\"]);    // for later use",
+							"",
+							"pm.test(\"201 status code\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"",
+							"pm.test(\"content is valid\", function () {",
+							"    pm.expect(pm.response.json()[\"name\"]).to.eq(\"boat name 1_2\");",
+							"    pm.expect(pm.response.json()[\"type\"]).to.eq(\"boat type 1_2\");",
+							"    pm.expect(pm.response.json()[\"owner\"]).to.eq(pm.environment.get(\"user_id1\"));",
+							"    pm.expect(pm.response.json()[\"length\"]).to.eq(12);",
+							"    const self_url = pm.environment.get(\"app_url\") + \"/boats/\" + pm.response.json()[\"id\"];",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"boat name 1_2\",\n\t\"type\": \"boat type 1_2\",\n\t\"length\": 12\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/boats",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add boat as user1 - 3 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c7f89286-e824-448c-90ef-40bbcd2ed547",
+						"exec": [
+							"pm.environment.set(\"boat_id_1_3\", pm.response.json()[\"id\"]);    // for later use",
+							"pm.environment.set(\"user_id2\", pm.response.json()[\"owner\"]);",
+							"",
+							"pm.test(\"201 status code\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"",
+							"pm.test(\"content is valid\", function () {",
+							"    pm.expect(pm.response.json()[\"name\"]).to.eq(\"boat name 1_3\");",
+							"    pm.expect(pm.response.json()[\"type\"]).to.eq(\"boat type 1_3\");",
+							"    pm.expect(pm.response.json()[\"owner\"]).to.eq(pm.environment.get(\"user_id2\"));",
+							"    pm.expect(pm.response.json()[\"length\"]).to.eq(13);",
+							"    const self_url = pm.environment.get(\"app_url\") + \"/boats/\" + pm.response.json()[\"id\"];",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"boat name 1_3\",\n\t\"type\": \"boat type 1_3\",\n\t\"length\": 13\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/boats",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add boat as user2 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5c680103-f89b-4ccd-be95-2499884257b0",
+						"exec": [
+							"pm.environment.set(\"boat_id_2_1\", pm.response.json()[\"id\"]);    // for later use",
+							"pm.environment.set(\"user_id2\", pm.response.json()[\"owner\"]);",
+							"",
+							"pm.test(\"201 status code\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"",
+							"pm.test(\"content is valid\", function () {",
+							"    pm.expect(pm.response.json()[\"name\"]).to.eq(\"boat name 2_1\");",
+							"    pm.expect(pm.response.json()[\"type\"]).to.eq(\"boat type 2_1\");",
+							"    //pm.expect(pm.response.json()[\"owner\"]).to.eq(pm.environment.get(\"token2\"));",
+							"    pm.expect(pm.response.json()[\"length\"]).to.eq(21);",
+							"    const self_url = pm.environment.get(\"app_url\") + \"/boats/\" + pm.response.json()[\"id\"];",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"boat name 2_1\",\n\t\"type\": \"boat type 2_1\",\n\t\"length\": 21\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/boats",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add boat - missing attributes 400",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "71123a13-8fe9-4760-a075-6c4334128a45",
+						"exec": [
+							"pm.test(\"400 status code\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"400 error message\", function () {",
+							"    pm.expect(pm.response.json()[\"Error\"]).to.eq(\"The request object is missing at least one of the required attributes\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"boat name 1_4\",\n\t\"type\": \"boat type 1_4\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/boats",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add boat - missing  JWT 401",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "48f46679-54af-4b0d-b1b6-b3c954a62fb5",
+						"exec": [
+							"pm.test(\"401 status code\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});",
+							"",
+							"pm.test(\"401 error message\", function () {",
+							"    pm.expect(pm.response.json()[\"Error\"]).to.eq(\"The user token is missing\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"boat name 1_4\",\n\t\"type\": \"boat type 1_4\",\n\t\"length\": 14\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/boats",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add boat - invalid  JWT 401",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "196a2081-fd02-4e78-b331-8b4f5f85cfeb",
+						"exec": [
+							"pm.test(\"401 status code\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});",
+							"",
+							"pm.test(\"401 error message\", function () {",
+							"    pm.expect(pm.response.json()[\"Error\"]).to.eq(\"The user token is invalid\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"boat name 1_4\",\n\t\"type\": \"boat type 1_4\",\n\t\"length\": 14\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/boats",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add boat - non-unique name 403",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3f7e5a0d-ca40-4174-82a6-4db3eacb44ab",
+						"exec": [
+							"pm.test(\"403 status code\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});",
+							"",
+							"pm.test(\"403 error message\", function () {",
+							"    pm.expect(pm.response.json()[\"Error\"]).to.eq(\"The name is already in use\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"boat name 1_1\",\n\t\"type\": \"boat type 1_4\",\n\t\"length\": 14\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/boats",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add boat - unacceptable 406",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6b9dc122-0eca-447b-9730-a371d9e81151",
+						"exec": [
+							"pm.test(\"406 status code\", function () {",
+							"    pm.response.to.have.status(406);",
+							"});",
+							"",
+							"pm.test(\"406 error message\", function () {",
+							"    pm.expect(pm.response.json()[\"Error\"]).to.eq(\"The Accept type is not supported by this endpoint\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"boat name 1_4\",\n\t\"type\": \"boat type 1_4\",\n\t\"length\": 14\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/boats",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add boat - bad content type 415",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9592521b-a2cf-492a-b55e-9e779bd5b85a",
+						"exec": [
+							"pm.test(\"415 status code\", function () {",
+							"    pm.response.to.have.status(415);",
+							"});",
+							"",
+							"pm.test(\"415 error message\", function () {",
+							"    pm.expect(pm.response.json()[\"Error\"]).to.eq(\"The request Content Type is unsupported media type\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"boat name 1_4\",\n\t\"type\": \"boat type 1_4\",\n\t\"length\": 14\n}",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/boats",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add load - 1 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ead2ab98-79a1-4284-9de8-0586916de723",
+						"exec": [
+							"pm.environment.set(\"load_id_1\", pm.response.json()[\"id\"]);    // for later use",
+							"",
+							"pm.test(\"201 status code\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"",
+							"pm.test(\"content is valid\", function () {",
+							"    pm.expect(pm.response.json()[\"weight\"]).to.eq(11);",
+							"    pm.expect(pm.response.json()[\"content\"]).to.eq(\"content 1\");",
+							"    pm.expect(pm.response.json()[\"delivery_date\"]).to.eq(\"06-30-2021\");",
+							"    const self_url = pm.environment.get(\"app_url\") + \"/loads/\" + pm.response.json()[\"id\"];",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"weight\": 11,\n\t\"content\": \"content 1\",\n\t\"delivery_date\": \"06-30-2021\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/loads",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"loads"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add load - 2 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1ae2d24d-dad4-413b-8b03-9405e363411b",
+						"exec": [
+							"pm.environment.set(\"load_id_2\", pm.response.json()[\"id\"]);    // for later use",
+							"",
+							"pm.test(\"201 status code\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"",
+							"pm.test(\"content is valid\", function () {",
+							"    pm.expect(pm.response.json()[\"weight\"]).to.eq(12);",
+							"    pm.expect(pm.response.json()[\"content\"]).to.eq(\"content 2\");",
+							"    pm.expect(pm.response.json()[\"delivery_date\"]).to.eq(\"06-30-2022\");",
+							"    const self_url = pm.environment.get(\"app_url\") + \"/loads/\" + pm.response.json()[\"id\"];",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"weight\": 12,\n\t\"content\": \"content 2\",\n\t\"delivery_date\": \"06-30-2022\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/loads",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"loads"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add load - 3 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f0b73d7f-de7a-49b6-b055-0ddafdbb2963",
+						"exec": [
+							"pm.environment.set(\"load_id_3\", pm.response.json()[\"id\"]);",
+							"",
+							"pm.test(\"201 status code\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"",
+							"pm.test(\"content is valid\", function () {",
+							"    pm.expect(pm.response.json()[\"weight\"]).to.eq(13);",
+							"    pm.expect(pm.response.json()[\"content\"]).to.eq(\"content 3\");",
+							"    pm.expect(pm.response.json()[\"delivery_date\"]).to.eq(\"06-30-2023\");",
+							"    const self_url = pm.environment.get(\"app_url\") + \"/loads/\" + pm.response.json()[\"id\"];",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"weight\": 13,\n\t\"content\": \"content 3\",\n\t\"delivery_date\": \"06-30-2023\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/loads",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"loads"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add load - 4 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9b9f5cf2-e56e-4bcd-9641-5e2107d03f90",
+						"exec": [
+							"pm.environment.set(\"load_id_4\", pm.response.json()[\"id\"]);",
+							"",
+							"pm.test(\"201 status code\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"",
+							"pm.test(\"content is valid\", function () {",
+							"    pm.expect(pm.response.json()[\"weight\"]).to.eq(14);",
+							"    pm.expect(pm.response.json()[\"content\"]).to.eq(\"content 4\");",
+							"    pm.expect(pm.response.json()[\"delivery_date\"]).to.eq(\"06-30-2024\");",
+							"    const self_url = pm.environment.get(\"app_url\") + \"/loads/\" + pm.response.json()[\"id\"];",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"weight\": 14,\n\t\"content\": \"content 4\",\n\t\"delivery_date\": \"06-30-2024\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/loads",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"loads"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add load - 5 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0a93db75-8fc3-43f4-a26c-0034d318cf51",
+						"exec": [
+							"pm.environment.set(\"load_id_5\", pm.response.json()[\"id\"]);",
+							"",
+							"pm.test(\"201 status code\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"",
+							"pm.test(\"content is valid\", function () {",
+							"    pm.expect(pm.response.json()[\"weight\"]).to.eq(15);",
+							"    pm.expect(pm.response.json()[\"content\"]).to.eq(\"content 5\");",
+							"    pm.expect(pm.response.json()[\"delivery_date\"]).to.eq(\"06-30-2025\");",
+							"    const self_url = pm.environment.get(\"app_url\") + \"/loads/\" + pm.response.json()[\"id\"];",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"weight\": 15,\n\t\"content\": \"content 5\",\n\t\"delivery_date\": \"06-30-2025\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/loads",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"loads"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add load - 6 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e3ad5b04-622f-492d-9818-c22bfe6b6a92",
+						"exec": [
+							"pm.environment.set(\"load_id_6\", pm.response.json()[\"id\"]);",
+							"",
+							"pm.test(\"201 status code\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"",
+							"pm.test(\"content is valid\", function () {",
+							"    pm.expect(pm.response.json()[\"weight\"]).to.eq(16);",
+							"    pm.expect(pm.response.json()[\"content\"]).to.eq(\"content 6\");",
+							"    pm.expect(pm.response.json()[\"delivery_date\"]).to.eq(\"06-30-2026\");",
+							"    const self_url = pm.environment.get(\"app_url\") + \"/loads/\" + pm.response.json()[\"id\"];",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"weight\": 16,\n\t\"content\": \"content 6\",\n\t\"delivery_date\": \"06-30-2026\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/loads",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"loads"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add user  - not allowed 405",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dfa2e064-8c8b-49cd-b2eb-c6583fd88d90",
+						"exec": [
+							"pm.test(\"405 status code\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});",
+							"",
+							"",
+							"pm.test(\"405 error message\", function () {",
+							"    pm.expect(pm.response.json()[\"Error\"]).to.eq(\"This HTML method for the request URL is not allowed\");",
+							"});",
+							"",
+							"pm.test(\"Allowed header set\", function () {",
+							"    pm.response.to.be.header(\"Allow\", \"GET\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"sub\": 123456789,\n\t\"given_name\": 16,\n\t\"family_name\": \"content 6\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/users",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get boat - 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2c868d54-078c-43d7-bd5a-6dbd21a44040",
+						"exec": [
+							"pm.test(\"200 status code\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"content is valid\", function () {",
+							"    pm.expect(pm.response.json()[\"name\"]).to.eq(\"boat name 1_1\");",
+							"    pm.expect(pm.response.json()[\"type\"]).to.eq(\"boat type 1_1\");",
+							"    pm.expect(pm.response.json()[\"owner\"]).to.eq(pm.environment.get(\"user_id1\"));",
+							"    pm.expect(pm.response.json()[\"length\"]).to.eq(11);",
+							"    const self_url = pm.environment.get(\"app_url\") + \"/boats/\" + pm.response.json()[\"id\"];",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id_1_1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id_1_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get boat - missing JWT 401",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b8f223fc-75fd-441a-b217-03a0749b9907",
+						"exec": [
+							"pm.test(\"401 status code\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});",
+							"",
+							"pm.test(\"401 error message\", function () {",
+							"    pm.expect(pm.response.json()[\"Error\"]).to.eq(\"The user token is missing\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id_1_1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id_1_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get boat - invalid JWT 401",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0b1d28cd-e7b7-4c69-9ca3-53059df1c932",
+						"exec": [
+							"pm.test(\"401 status code\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});",
+							"",
+							"pm.test(\"401 error message\", function () {",
+							"    pm.expect(pm.response.json()[\"Error\"]).to.eq(\"The user token is invalid\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id_1_1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id_1_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get boat - owned by someone else 403",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bc890094-55a7-445e-815a-1d81fd55d8d4",
+						"exec": [
+							"pm.test(\"403 status code\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});",
+							"",
+							"pm.test(\"403 error message\", function () {",
+							"    pm.expect(pm.response.json()[\"Error\"]).to.eq(\"The boat is owned by someone else\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id_2_1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id_2_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get boat - invalid id 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "50cbc4cd-8d5a-4759-907c-59d617acea74",
+						"exec": [
+							"pm.test(\"404 status code\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"404 error message\", function () {",
+							"    pm.expect(pm.response.json()[\"Error\"]).to.eq(\"No boat with this boat_id exists\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats/1",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get boat - Not Acceptable content type 406",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4cdf2900-5211-4d2a-bd04-73751262759f",
+						"exec": [
+							"pm.test(\"406 status code\", function () {",
+							"    pm.response.to.have.status(406);",
+							"});",
+							"",
+							"pm.test(\"406 error message\", function () {",
+							"    pm.expect(pm.response.json()[\"Error\"]).to.eq(\"The Accept type is not supported by this endpoint\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id_1_1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id_1_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all boats by user1 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ccdec0b1-0b15-4718-8993-af72c8e95213",
+						"exec": [
+							"pm.test(\"200 status code\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"content count is correct\", function () {",
+							"    pm.expect(pm.response.json()[\"count\"]).to.eq(3);",
+							"    pm.expect(pm.response.json()[\"items\"].length).to.eq(3);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all boats by user2 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "76f0763d-21ab-47fd-a2c6-1f3d21f44fff",
+						"exec": [
+							"pm.test(\"200 status code\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"content count is correct\", function () {",
+							"    pm.expect(pm.response.json()[\"count\"]).to.eq(1);",
+							"    pm.expect(pm.response.json()[\"items\"].length).to.eq(1);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all boats by user- missing JWT 401",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4254f13a-4c96-4397-9a66-e9fe2f9ccbc3",
+						"exec": [
+							"pm.test(\"401 status code\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});",
+							"",
+							"pm.test(\"401 error message\", function () {",
+							"    pm.expect(pm.response.json()[\"Error\"]).to.eq(\"The user token is missing\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all boats by user - invalid JWT 401",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b0d90094-f11e-426f-9c92-24733d0031b1",
+						"exec": [
+							"pm.test(\"401 status code\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});",
+							"",
+							"pm.test(\"401 error message\", function () {",
+							"    pm.expect(pm.response.json()[\"Error\"]).to.eq(\"The user token is invalid\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get load - 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "29ae1952-cd91-4c24-a63f-20241299ba05",
+						"exec": [
+							"pm.test(\"200 status code\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"content is valid\", function () {",
+							"    pm.expect(pm.response.json()[\"weight\"]).to.eq(11);",
+							"    pm.expect(pm.response.json()[\"content\"]).to.eq(\"content 1\");",
+							"    pm.expect(pm.response.json()[\"delivery_date\"]).to.eq(\"06-30-2021\");",
+							"    const self_url = pm.environment.get(\"app_url\") + \"/loads/\" + pm.response.json()[\"id\"];",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/loads/{{load_id_1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"loads",
+						"{{load_id_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all loads - first page 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c74f173b-3af8-4e8c-82ef-57c5b5c042e8",
+						"exec": [
+							"pm.test(\"200 status code\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"content count is correct\", function () {",
+							"    pm.expect(pm.response.json()[\"count\"]).to.eq(6);",
+							"    pm.expect(pm.response.json()[\"items\"].length).to.eq(5);",
+							"});",
+							"",
+							"pm.test(\"next page is set\", function () {",
+							"    pm.expect(pm.response.json()).to.have.property(\"next\");",
+							"});",
+							"",
+							"pm.environment.set(\"next_page\", pm.response.json()[\"next\"]);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/loads",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"loads"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all loads - next page 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3d2c1185-2378-4e03-9552-22f8273ae189",
+						"exec": [
+							"pm.test(\"200 status code\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"content count is correct\", function () {",
+							"    pm.expect(pm.response.json()[\"count\"]).to.eq(6);",
+							"    pm.expect(pm.response.json()[\"items\"].length).to.eq(1);",
+							"});",
+							"",
+							"pm.test(\"next page is not set\", function () {",
+							"    pm.expect(pm.response.json()).to.not.have.property(\"next\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{next_page}}",
+					"host": [
+						"{{next_page}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all users 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "869cd1f5-d58f-4d37-ba46-9385006b5880",
+						"exec": [
+							"pm.test(\"200 status code\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/users",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "assign load to boat - 1 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "220149bd-f509-4440-bdd5-2bf67d44d497",
+						"exec": [
+							"pm.test(\"204 status code\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});",
+							"",
+							"// check the boat has the load in loads",
+							"var target_url_1 = pm.environment.get(\"app_url\") + \"/boats/\" + pm.environment.get(\"boat_id_1_1\");",
+							"",
+							"pm.sendRequest({ url: target_url_1, header: { authorization: \"Bearer \" + pm.environment.get(\"jwt1\") } }, function(err, res){",
+							"    if (err){",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.test(\"200 status code in get boat\", function () {",
+							"            pm.expect(200).to.equal(res.code);  // verify that the code is 200",
+							"        });",
+							"",
+							"        pm.test(\"boat has the load in loads\", function() {",
+							"            pm.expect(JSON.parse(res.stream)[\"loads\"]).to.deep.include({",
+							"                \"id\": pm.environment.get(\"load_id_1\"),",
+							"                \"self\": pm.environment.get(\"app_url\") + \"/loads/\" + pm.environment.get(\"load_id_1\")",
+							"                });",
+							"        });",
+							"        pm.test(\"boat has correct number of loads\", function() {",
+							"            pm.expect(JSON.parse(res.stream)[\"loads\"]).to.have.lengthOf(1);",
+							"        });",
+							"    }",
+							"});",
+							"",
+							"// check the load has the boat in carrier",
+							"var target_url_2 = pm.environment.get(\"app_url\") + \"/loads/\" + pm.environment.get(\"load_id_1\");",
+							"",
+							"pm.sendRequest({ url: target_url_2 }, function(err, res){",
+							"    if (err){",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.test(\"200 status code in get load\", function () {",
+							"            pm.expect(200).to.equal(res.code);  // verify that the code is 200",
+							"        });",
+							"",
+							"        pm.test(\"load has the boat in carrier\", function(){",
+							"            pm.expect(JSON.parse(res.stream)[\"carrier\"]).to.have.property(\"id\", pm.environment.get(\"boat_id_1_1\"));",
+							"        });",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id_1_1}}/loads/{{load_id_1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id_1_1}}",
+						"loads",
+						"{{load_id_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "assign load to boat - 2 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "37e93ad2-d071-4dc0-b01e-1cc6a07ddd0f",
+						"exec": [
+							"pm.test(\"204 status code\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});",
+							"",
+							"// check the boat has the load in loads",
+							"var target_url_1 = pm.environment.get(\"app_url\") + \"/boats/\" + pm.environment.get(\"boat_id_1_1\");",
+							"",
+							"pm.sendRequest({ url: target_url_1, header: { authorization: \"Bearer \" + pm.environment.get(\"jwt1\") } }, function(err, res){",
+							"    if (err){",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.test(\"200 status code in get boat\", function () {",
+							"            pm.expect(200).to.equal(res.code);  // verify that the code is 200",
+							"        });",
+							"",
+							"        pm.test(\"boat has the load in loads\", function() {",
+							"            pm.expect(JSON.parse(res.stream)[\"loads\"]).to.deep.include({",
+							"                \"id\": pm.environment.get(\"load_id_2\"),",
+							"                \"self\": pm.environment.get(\"app_url\") + \"/loads/\" + pm.environment.get(\"load_id_2\")",
+							"                });",
+							"        });",
+							"        pm.test(\"boat has correct number of loads\", function() {",
+							"            pm.expect(JSON.parse(res.stream)[\"loads\"]).to.have.lengthOf(2);",
+							"        });",
+							"    }",
+							"});",
+							"",
+							"// check the load has the boat in carrier",
+							"var target_url_2 = pm.environment.get(\"app_url\") + \"/loads/\" + pm.environment.get(\"load_id_2\");",
+							"",
+							"pm.sendRequest({ url: target_url_2 }, function(err, res){",
+							"    if (err){",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.test(\"200 status code in get load\", function () {",
+							"            pm.expect(200).to.equal(res.code);  // verify that the code is 200",
+							"        });",
+							"",
+							"        pm.test(\"load has the boat in carrier\", function(){",
+							"            pm.expect(JSON.parse(res.stream)[\"carrier\"]).to.have.property(\"id\", pm.environment.get(\"boat_id_1_1\"));",
+							"        });",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id_1_1}}/loads/{{load_id_2}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id_1_1}}",
+						"loads",
+						"{{load_id_2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "assign load to boat - owned by someone else 403",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fa81f4d6-b824-4a92-a49a-b27834c64b82",
+						"exec": [
+							"pm.test(\"403 status code\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});",
+							"",
+							"pm.test(\"403 error message\", function () {",
+							"    pm.expect(pm.response.json()[\"Error\"]).to.eq(\"The boat is owned by someone else\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id_1_1}}/loads/{{load_id_3}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id_1_1}}",
+						"loads",
+						"{{load_id_3}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "view loads on a boat 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b2da0264-bbe4-45db-8e7d-163b6e94028e",
+						"exec": [
+							"pm.test(\"200 status code\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"load list have correct number of loads\", function () {",
+							"    pm.expect(pm.response.json()[\"count\"]).to.equal(2);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id_1_1}}/loads",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id_1_1}}",
+						"loads"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "view loads on a boat  - owned by someone else 403",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9ee523bb-19b5-4fa8-a7cf-1b8396ed07b1",
+						"exec": [
+							"pm.test(\"403 status code\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});",
+							"",
+							"pm.test(\"403 error message\", function () {",
+							"    pm.expect(pm.response.json()[\"Error\"]).to.eq(\"The boat is owned by someone else\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id_1_1}}/loads",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id_1_1}}",
+						"loads"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "unload a boat 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "350011d0-4b29-4d64-b0e0-01708ceef234",
+						"exec": [
+							"pm.test(\"204 status code\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});",
+							"",
+							"// check the boat does not have the load in loads",
+							"var target_url_1 = pm.environment.get(\"app_url\") + \"/boats/\" + pm.environment.get(\"boat_id_1_1\");",
+							"",
+							"pm.sendRequest({ url: target_url_1, header: { authorization: \"Bearer \" + pm.environment.get(\"jwt1\") } }, function(err, res){",
+							"    if (err){",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.test(\"200 status code in get boat\", function () {",
+							"            pm.expect(200).to.equal(res.code);  // verify that the code is 200",
+							"        });",
+							"",
+							"        pm.test(\"boat does not have the load in loads\", function(){",
+							"            pm.expect(JSON.parse(res.stream)[\"loads\"]).to.not.deep.include({",
+							"                \"id\": pm.environment.get(\"load_id_1\"),",
+							"                \"self\": pm.environment.get(\"app_url\") + \"/loads/\" + pm.environment.get(\"load_id_1\")",
+							"                });",
+							"        });",
+							"        pm.test(\"boat has correct number of loads\", function() {",
+							"            pm.expect(JSON.parse(res.stream)[\"loads\"]).to.have.lengthOf(1);",
+							"        });",
+							"    }",
+							"});",
+							"",
+							"// check the load no carrier",
+							"var target_url_2 = pm.environment.get(\"app_url\") + \"/loads/\" + pm.environment.get(\"load_id_1\");",
+							"",
+							"pm.sendRequest({ url: target_url_2 }, function(err, res){",
+							"    if (err){",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.test(\"200 status code in get load\", function () {",
+							"            pm.expect(200).to.equal(res.code);  // verify that the code is 200",
+							"        });",
+							"",
+							"        pm.test(\"load has no carrier\", function(){",
+							"            pm.expect(JSON.parse(res.stream)).to.not.have.property(\"carrier\");",
+							"        });",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id_1_1}}/loads/{{load_id_1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id_1_1}}",
+						"loads",
+						"{{load_id_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "unload a boat - owned by someone else 403",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cafbe5a5-8350-4554-bc62-dcc709e3750b",
+						"exec": [
+							"pm.test(\"403 status code\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});",
+							"",
+							"pm.test(\"403 error message\", function () {",
+							"    pm.expect(pm.response.json()[\"Error\"]).to.eq(\"The boat is owned by someone else\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id_1_1}}/loads/{{load_id_1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id_1_1}}",
+						"loads",
+						"{{load_id_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patch boat 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "02814ac0-7662-47ed-b322-570ad2646d08",
+						"exec": [
+							"pm.test(\"200 status code\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"content is valid\", function () {",
+							"    pm.expect(pm.response.json()[\"name\"]).to.eq(\"boat name 1_1\");",
+							"    pm.expect(pm.response.json()[\"type\"]).to.eq(\"modified type\");",
+							"    pm.expect(pm.response.json()[\"owner\"]).to.eq(pm.environment.get(\"user_id1\"));",
+							"    pm.expect(pm.response.json()[\"length\"]).to.eq(11);",
+							"    const self_url = pm.environment.get(\"app_url\") + \"/boats/\" + pm.response.json()[\"id\"];",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"type\": \"modified type\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id_1_1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id_1_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patch boat - owned by someone else 403",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "449e7fe7-5d43-4a4f-b168-1efba393c153",
+						"exec": [
+							"pm.test(\"403 status code\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});",
+							"",
+							"pm.test(\"403 error message\", function () {",
+							"    pm.expect(pm.response.json()[\"Error\"]).to.eq(\"The boat is owned by someone else\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"type\": \"failed modified type\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id_1_1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id_1_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patch load 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dc2b4b0c-dabc-4cd4-989d-5b971c5fc422",
+						"exec": [
+							"pm.test(\"200 status code\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"content is valid\", function () {",
+							"    pm.expect(pm.response.json()[\"weight\"]).to.eq(11);",
+							"    pm.expect(pm.response.json()[\"content\"]).to.eq(\"modified content\");",
+							"    pm.expect(pm.response.json()[\"delivery_date\"]).to.eq(\"06-30-2021\");",
+							"    const self_url = pm.environment.get(\"app_url\") + \"/loads/\" + pm.response.json()[\"id\"];",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"content\": \"modified content\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/loads/{{load_id_1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"loads",
+						"{{load_id_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put boat 303",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "68e37bb3-86b1-4a4d-b158-bdf2031b2ca6",
+						"exec": [
+							"pm.test(\"303 status code\", function () {",
+							"    pm.response.to.have.status(303);",
+							"});",
+							"",
+							"pm.test(\"content is valid\", function () {",
+							"    pm.expect(pm.response.json()[\"name\"]).to.eq(\"Odyssey II\");",
+							"    pm.expect(pm.response.json()[\"type\"]).to.eq(\"Mega Yatch\");",
+							"    pm.expect(pm.response.json()[\"length\"]).to.eq(200);",
+							"    const self_url = pm.environment.get(\"app_url\") + \"/boats/\" + pm.response.json()[\"id\"];",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);",
+							"});",
+							"",
+							"pm.test(\"location header set\", function () {",
+							"    pm.response.to.have.header(\"Location\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"name\": \"Odyssey II\",\r\n\t\"type\": \"Mega Yatch\",\r\n\t\"length\": 200\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id_1_1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id_1_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put boat - owned by someone else 403",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "39e7a52f-8b9b-41eb-9c00-c08daae0432c",
+						"exec": [
+							"pm.test(\"403 status code\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});",
+							"",
+							"pm.test(\"403 error message\", function () {",
+							"    pm.expect(pm.response.json()[\"Error\"]).to.eq(\"The boat is owned by someone else\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"name\": \"failed modifiled name\",\r\n\t\"type\": \"failed modified type\",\r\n\t\"length\": 333\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id_1_1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id_1_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put load 303",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b5f510cc-2ccf-4197-9c25-f81de43b5218",
+						"exec": [
+							"pm.test(\"303 status code\", function () {",
+							"    pm.response.to.have.status(303);",
+							"});",
+							"",
+							"pm.test(\"content is valid\", function () {",
+							"    pm.expect(pm.response.json()[\"weight\"]).to.eq(300);",
+							"    pm.expect(pm.response.json()[\"content\"]).to.eq(\"Super Duper\");",
+							"    pm.expect(pm.response.json()[\"delivery_date\"]).to.eq(\"12-07-2048\");",
+							"    const self_url = pm.environment.get(\"app_url\") + \"/loads/\" + pm.response.json()[\"id\"];",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);",
+							"});",
+							"",
+							"pm.test(\"location header set\", function () {",
+							"    pm.response.to.have.header(\"Location\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"weight\": 300,\n\t\"content\": \"Super Duper\",\n\t\"delivery_date\": \"12-07-2048\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/loads/{{load_id_1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"loads",
+						"{{load_id_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete boat - missing JWT 401",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "991bed71-b06a-40a8-9131-7c25b3277b02",
+						"exec": [
+							"pm.test(\"401 status code\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});",
+							"",
+							"pm.test(\"401 error message\", function () {",
+							"    pm.expect(pm.response.json()[\"Error\"]).to.eq(\"The user token is missing\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id_1_1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id_1_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete boat - owned by someone else 403",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "67da1e44-69b2-4bca-9d8a-a7670d568253",
+						"exec": [
+							"pm.test(\"403 status code\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});",
+							"",
+							"pm.test(\"403 error message\", function () {",
+							"    pm.expect(pm.response.json()[\"Error\"]).to.eq(\"The boat is owned by someone else\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id_1_1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id_1_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete boat - invalid id 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "95e581c8-14ee-4f56-a324-98ab73212d0d",
+						"exec": [
+							"pm.test(\"404 status code\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"404 error message\", function () {",
+							"    pm.expect(pm.response.json()[\"Error\"]).to.eq(\"No boat with this boat_id exists\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats/1",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete boat 1_1 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "45e0f294-6f66-418c-a473-1dbda12d50cb",
+						"exec": [
+							"pm.test(\"204 no content\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id_1_1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id_1_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete boat 1_2 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d415c94b-7118-4aa7-90c3-b60a21c1c4c1",
+						"exec": [
+							"pm.test(\"204 no content\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id_1_2}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id_1_2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete boat 1_3 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "444f327d-4954-44a9-9318-1fc21e18353d",
+						"exec": [
+							"pm.test(\"204 no content\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id_1_3}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id_1_3}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete boat 2_1 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f317fc4a-fb95-46bc-a3ee-160cb526be00",
+						"exec": [
+							"pm.test(\"204 no content\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/boats/{{boat_id_2_1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"boats",
+						"{{boat_id_2_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete load 1 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b9589d64-a2b8-4d2f-87a7-20b314aece07",
+						"exec": [
+							"pm.test(\"204 no content\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/loads/{{load_id_1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"loads",
+						"{{load_id_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete load 2 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c19746dc-2777-4586-b447-c356a9b9329e",
+						"exec": [
+							"pm.test(\"204 no content\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/loads/{{load_id_2}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"loads",
+						"{{load_id_2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete load 3 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "14fe42f8-6009-4e42-ac24-c55b1ffca71f",
+						"exec": [
+							"pm.test(\"204 no content\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/loads/{{load_id_3}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"loads",
+						"{{load_id_3}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete load 4 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "30cae829-13cb-47af-a5da-c8aee679be54",
+						"exec": [
+							"pm.test(\"204 no content\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/loads/{{load_id_4}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"loads",
+						"{{load_id_4}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete load 5 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8e7b8014-8f5e-4a3b-9078-a74881c86856",
+						"exec": [
+							"pm.test(\"204 no content\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/loads/{{load_id_5}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"loads",
+						"{{load_id_5}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete load 6 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e95cd140-585f-44e8-ab4d-130f3f0771f6",
+						"exec": [
+							"pm.test(\"204 no content\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/loads/{{load_id_6}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"loads",
+						"{{load_id_6}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,44 @@
+﻿<!-- User Info page, as required in the assignment -->
+<body class="jumbotron text-center">
+	<div class="container-fluid" style="border:10px solid grey;">
+		<br />
+		<h3>Sae Hyoung Oh Final Project  -  User Info Page</h3>
+		<br />
+		<p class="text-info">
+			This webpage is an assignment for Oregon State University CS493: Cloud Application Development<br />
+			Portfolio Assignment: Final Project.<br /><br />
+		</p>
+		<p class="text-secondary">
+			The purpose of the page is to implement OAuth 2.0 using Google API.<br />
+			This page displays the user's name and the state variable.<br />
+			The user's "sub" from the JWT is saved to the datastore as user ID.<br /><br />
+		</p>
+		<table class="table table-responsive table-bordered">
+			<tr>
+				<td>First Name</td>
+				<td>{{fname}}</td>
+			</tr>
+			<tr>
+				<td>Last Name</td>
+				<td>{{lname}}</td>
+			</tr>
+			<tr>
+				<td>State</td>
+				<td>{{state}}</td>
+			</tr>
+			<tr>
+				<td>JWT</td>
+				<td style="word-break:break-all;">{{jwt}}</td>
+			</tr>
+			<tr>
+				<td>JWT (Decoded)</td>
+				<td class="text-left"><pre>{{jwtDecoded}}</pre></td>
+			</tr>
+			<tr>
+				<td>User ID</td>
+				<td >{{userID}}</td>
+			</tr>
+		</table>
+		<br />
+	</div>
+</body>

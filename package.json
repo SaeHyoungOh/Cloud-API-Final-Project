@@ -1,0 +1,24 @@
+{
+	"name": "ohsa_project",
+	"version": "0.0.0",
+	"description": "Portfolio Assignment: Final Project",
+	"main": "server.js",
+	"dependencies": {
+		"googleapis": "51.0.0",
+		"jwt-decode": "2.2.0",
+		"@google-cloud/datastore": "4.0.0",
+		"axios": "^0.19.2",
+		"body-parser": "^1.19.0",
+		"express": "^4.17.1",
+		"express-handlebars": "^4.0.4",
+		"google-gax": "^1.6.4",
+		"json-to-html": "0.1.2"
+	},
+	"devDependencies": {},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node server.js"
+	},
+	"author": "Sae Hyoung Oh",
+	"license": "ISC"
+}
